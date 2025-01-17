@@ -21,12 +21,12 @@ void main()
 	TargetProcess.GetBaseAddress("GameAssembly.dll");
 	TargetProcess.FixCr3();
 
-	uint64_t occlusioncullingclass = 233574112;
+	uint64_t occlusioncullingclass = 233977000;
 	uint64_t klass = TargetProcess.Read<uint64_t>(TargetProcess.GetBaseAddress("GameAssembly.dll") + occlusioncullingclass);
 	uint64_t staticclass = TargetProcess.Read<uint64_t>(klass + 0xb8);
 	printf("StaticClass: %llx\n", staticclass);
 //	Sleep(5000);
-	uint64_t instance = TargetProcess.Read<uint64_t>(staticclass + 0x338);
+	uint64_t instance = TargetProcess.Read<uint64_t>(staticclass + 0x570);
 	uint64_t debugsettings = TargetProcess.Read<uint64_t>(instance + 0x1A8);
 
 
